@@ -8,6 +8,7 @@
 import acm.graphics.*;
 import acm.program.*;
 import acm.util.*;
+import java.util.Scanner;
 
 import java.awt.*;
 
@@ -46,9 +47,11 @@ public class Hangman extends ConsoleProgram
 	
 	{
 	
-		int randomNumber = rgen.nextInt(0, getWordCount());
+		HangmanLexicon wordNumber = new HangmanLexicon();
 		
-		gameWord = getWord(randomNumber);
+		int randomNumber = rgen.nextInt(0, wordNumber.getWordCount());
+		
+		gameWord = wordNumber.getWord(randomNumber);
 		
 		return gameWord;
 		
@@ -58,11 +61,15 @@ public class Hangman extends ConsoleProgram
 	
 	{
 		
-		for (i = 0; i < gameWord.length(); i++) {
+		for (int i = 0; i < gameWord.length(); i++) 
+		
+		{
 	
 		dashes += "-";
 		
 		return dashes;
+		
+		}
 		
 	}
 	
@@ -74,10 +81,12 @@ public class Hangman extends ConsoleProgram
 		
 		{
 	
-			System.out.println = "You have " + guessesLeft + "guesses left.";
+			System.out.println("You have " + guessesLeft + "guesses left.");
 	
 	//this can't be right
-			guess = println(nextLine("Please guess a letter: "));
+			Scanner letterReader = new Scanner(System.in);
+			
+			guess = letterReader.readLine("Please guess a letter: ");
 	
 			guess = guess.toUpperCase();
 		
@@ -85,7 +94,7 @@ public class Hangman extends ConsoleProgram
 		
 			{
 				
-				updateDashes();
+				dashes.updateDashes();
 				
 			}
 			
