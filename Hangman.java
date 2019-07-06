@@ -24,7 +24,6 @@ public class Hangman extends ConsoleProgram
 	
 	public int guessesLeft = 8;
 	
-	public String guess = "";
 	
     public void run()
     
@@ -84,13 +83,16 @@ public class Hangman extends ConsoleProgram
 			System.out.println("You have " + guessesLeft + "guesses left.");
 	
 	//this can't be right
+	
 			Scanner letterReader = new Scanner(System.in);
 			
-			guess = letterReader.readLine("Please guess a letter: ");
+			System.out.print("Please guess a letter: ");
+	
+			String guess = letterReader.next().charAt(0)
 	
 			guess = guess.toUpperCase();
 		
-			if (guessIsValid() && guessMatchesLetter())
+			if (guess.guessIsValid() && guess.guessMatchesLetter())
 		
 			{
 				
