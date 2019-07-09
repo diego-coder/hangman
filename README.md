@@ -19,8 +19,9 @@
   With the router reporting local IP updates to the cloud for a continuous, seamless connection from anywhere 
   in the world to a fixed url. This setup was used on prior projects, like an ultra-low energy usage always-on simultaneously head on and Headless, or sometimes solely headless, rasperberry pi 3b for home based NAS (used, for example, for ½ TB of family picture storage, media replay at 1080p (perfectly fine for its time but outgrown with a 4K UHD OLED, enter the Rasp Pi 4 :) run from different flavors of Linux flavored distros, mostly Debian at first and then later a much lighter yet more heavily utilized Arch install.
   
- ## At one point I was running a DDNS sorted inbound reverse proxy nginx server built from cmd line with  
-  semi-working split firewall for outbound traffic.  Simply because reasons.      
+ ## At one point I was running a DDNS sorted inbound reverse proxy nginx server built from cmd line with...  
+  
+  ...semi-working split firewall for outbound traffic.  Simply because reasons.
   
   All from a multi-generation family of jailbroken iOS iPads or iPhones, of course.  Starting with the jailbreak of the iPhone 3, and never, ever using vanilla iOS (which I later found out is simply rebranded, albeit highly optimized, Unix anyway)  
   and tinkering with the Boolean operators of the OS and software packages as I saw fit. 
@@ -31,8 +32,7 @@
   they tended to be expensive, and annoyingly slower on the earlier iOS hardware, and I liked to work rapidly from anywhere, 
   when I was in the mood.       
   
-  Simple stuff, really, but not everyone runs a setup like this, especially those who say iPads can’t be used in an industrious way,  
-  or to code. 
+  Simple stuff, really, but not everyone runs a setup like this, especially those who say iPads can’t be used in an industrious way, or to code. 
 
 # 2) Where I am. 
 
@@ -52,8 +52,7 @@
   
   It is actually much easier to type short and logical code than fluent and fun readmes from an iPad. 
   
-  Being the sole monetary provider for a family of 3 (with a wonderful wife and 15 month old) for years and being on the road,  
-  not naturally having cheap access to a fully featured, super powered IDE like Eclipse locally on an iPad was, for me, a question begging to be answered.  
+  Being the sole monetary provider for a family of 3 (with a wonderful wife and 15 month old) for years and being on the road, not naturally having cheap access to a fully featured, super powered IDE like Eclipse locally on an iPad was, for me, a question begging to be answered.  
 
  ## And of course setting that environment is a snap, if you know how to do it, which I do. 
 
@@ -65,7 +64,7 @@
   
   ### But nothing is funnier than git pushing and pulling while memeing “I heard you like interfaces, so I put a cmd ln on your pc, so I could type linux commands in a windows bash prompt (ls –la over dir for me cause that’s how I learned it, fam) from a virtual visual interface on the road, while typing on an on-screen keyboard on my iOS iPad...
   
-  ...which is hot spotted through an old iOS phone I share with my passengers, should they need a connect. I’m still trying to work in my cheap toy Walmart Droid into this system, because (for again) reasons. 
+  ...which is hot spotted through an old iOS phone I share with my passengers" should they need a connect. I’m still trying to work in my cheap toy Walmart Droid into this system, because (for again) reasons. 
   
   And although there are very ingenious and well-developed git apps for use on the iPad, which I like and use, I found it simpler to streamline for the heavier parts of coding. 
   
@@ -75,7 +74,7 @@
   
   ## There are others I want access to for future projects, in different languages that I already know. My private build out is an extensible roadmap for the future.
   
-  I learned coding on javascript, moved on to Java, then took a semester on c++ so simply installing the newest framework for the latest toy language I am playing with on an industrial grade framework on PC (or the virtual macOS for Swift development, which I have also installed, on the same trusty 10-year-old PC) for my use case is better than managing a multitude of queasy and expensive so-so apps for remote work for sale in the iOS app store.   
+  I learned coding on javascript, moved on to java, then took a semester on c++ so simply installing the newest framework for the latest toy language I am playing with on an industrial grade framework on PC (or the virtual macOS for Swift development, which I have also installed, on the same trusty 10-year-old PC) for my use case is better than managing a multitude of queasy and expensive so-so apps for remote work for sale in the iOS app store.   
   
   I would rather not wait to run github’s clunky gui.exe for a series of mouse clicks.
   
