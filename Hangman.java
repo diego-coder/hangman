@@ -1,9 +1,26 @@
-/*
+
+/*   
+ 
  * File: Hangman.java
- * ------------------
- * This program will eventually play the Hangman game from
- * Assignment #4.
- */
+  ------------------
+  
+ If I told you that this program was written in Eclipse, that would not be the 
+  whole truth. 
+  
+  Please see readme sections:
+	  
+	1) Where I was.
+
+	2) Where I am.
+	
+	3) Where I am going, I can.
+
+	I promise you it will be worth the time. 
+  
+    It was worth it to me.
+  
+  */
+ 
 
 import acm.graphics.*;
 import acm.program.*;
@@ -16,19 +33,35 @@ public class Hangman extends ConsoleProgram
 
 {
 
-	public RandomGenerator rgen = RandomGenerator.getInstance();
+	public static final RandomGenerator RGEN = RandomGenerator.getInstance();
 	
-	public String gameWord = "";
+	private String gameWord;
 	
-	public String dashes = ""; 
+	private String dashes; 
 	
-	public int guessesLeft = 8;
+	private int guessesLeft = 8;
 	
+	private Character theGuess;
+	
+	private char[] wordToArray; 
+	
+	private char guessChar(String guess)
+	
+	{
+		
+		theGuess = guess.charAt(0);
+		
+		return theGuess;
+		
+	}
+	
+	@Override
 	
     public void run()
     
 	{
-		setupGame();
+		
+    	setupGame();
 		
 		playGame();
 	}
@@ -37,6 +70,8 @@ public class Hangman extends ConsoleProgram
 	
 	{
 		chooseWord();
+		
+		makeWordArray(gameWord);
 		
 		wordToDashes(gameWord);
 		
@@ -48,30 +83,42 @@ public class Hangman extends ConsoleProgram
 	
 		HangmanLexicon wordNumber = new HangmanLexicon();
 		
-		int randomNumber = rgen.nextInt(0, wordNumber.getWordCount());
+		int randomNumber = RGEN.nextInt(0, wordNumber.getWordCount() - 1);
 		
 		gameWord = wordNumber.getWord(randomNumber);
 		
-		return gameWord;
+		return gameWord.toUpperCase();
 		
 	}
 	
-	public String wordToDashes(String str)
+	public char[] makeWordArray(String word)
+	
+	{
+
+		wordToArray = word.toCharArray();
+		
+		return wordToArray;
+	}
+
+	public String wordToDashes(String gameWord)
 	
 	{
 		
 		for (int i = 0; i < gameWord.length(); i++) 
 		
 		{
-	
-		dashes += "-";
+			
+		// String builder will always be preferable here because of performance gains, 
+		// gains but I kept this for-loop "as-is" for purely sentimental reasons.
+			
+			dashes += "-";
+			
+		}
 		
 		return dashes;
 		
-		}
-		
 	}
-	
+
 	public void playGame ()
 	
 	{
@@ -80,96 +127,145 @@ public class Hangman extends ConsoleProgram
 		
 		{
 	
-			System.out.println("You have " + guessesLeft + "guesses left.");
-	
-	//this can't be right
+			System.out.println("You have " + guessesLeft + " guesses left.");
 	
 			Scanner letterReader = new Scanner(System.in);
 			
-			System.out.print("Please guess a letter: ");
+			System.out.println("Please guess a letter: ");
 	
-			String guess = letterReader.next().charAt(0)
+			String guess = letterReader.nextLine();
 	
 			guess = guess.toUpperCase();
-		
-			if (guess.guessIsValid() && guess.guessMatchesLetter())
+			
+			if (Character.isLetter(guessChar(guess)) && guessMatchesLetter(guessChar(guess)))
 		
 			{
 				
-				dashes.updateDashes();
+				updateDashes(theGuess);
+				
+				System.out.println(dashes);
+				
+				System.out.println("Correct!  Here is what the word looks like now: " + dashes);
+				
+				// updateDashes(theGuess);
+				
+				if (dashes.equals(gameWord))
+				
+				{
+				
+					System.out.println("You win. The word is " + gameWord + ".");
+				
+					break;
+				
+				}
 				
 			}
 			
 			else
 			
 			{
+				
+				System.out.println("That guess did not match.");
 			
-				guessesLeft--; 
+				guessesLeft--;
+				
+				if (guessesLeft == 0) 
+		
+				{
+		
+					System.out.println("You lose. The word was " + gameWord + ".");
+				}
 				
 			}
-			
-			if (dashes == gameWord)
-			
-			{
-			
-			System.out.println("You win. The word is " + gameWord + ".")
-			
 		
 		}
 		
-		if (guessesLeft == 0) 
-		
-		{
-		
-		System.out.println("You lose. The word was " + gameWord + ".")
-		
 	}
 	
-	public boolean guessIsValid() {
+	public boolean guessMatchesLetter(char theGuess)
 	
-		if (guess.CharAt(i).isLetter() {
+	{
+		
+		for (int i = 0; i < wordToArray.length; i++)
+		
+		{
 			
-			return true;
-	
-		} else {
-			
+			if (theGuess == wordToArray[i])
+		
+			{
+		
+				return true;
+		
+			}
+				
+		}
+		
 			return false;
-		}
-	
-	public boolean guessMatchesLetter()
-	
-	{
-		
-		for (i = 0; i < gameWord.length; i++)
-		
-		if (i == guess)
-		
-		return true;
 	
 	}
 	
-	public string updateDashes() 
+	public String updateDashes (char ch)
 	
 	{
 		
-		for (i = 0; i < dashes.length(); i++)
-		
+		for (int i = 0; i < gameWord.length(); i++ )
+			
 		{
-		
-			if (gameWord(i) == guess)
-		
+			
+			if (theGuess == gameWord.charAt(i))
+					
 			{
+			
+				if (i == 0)
+					
+				{	
 				
-				dashes = dashes.replace(charAt(i), guess);
+					dashes = theGuess + dashes.substring(1);
 				
-				System.out.println(dashes);
+				}
 				
-			}
+				else if (i > 0)
+					
+				{				
 		
+					dashes = dashes.substring(0, i) + theGuess + dashes;
+				
+				}
+				
+			}	
+			
 		}
-	
+		
+		return dashes;
+		
 	}
-
-	isGameOver
-
+	
 }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
